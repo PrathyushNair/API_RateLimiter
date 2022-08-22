@@ -31,7 +31,7 @@ app.get("/",async(req,resp)=>{
     let userInfo=await userModal.find({my_id:me})
     
     const {timeStamp,reqNumber}=userInfo[0]
-   if(((Date.now()/1000)-(timeStamp)/1000)<60&&reqNumber<10)
+   if(((Date.now()/1000)-(timeStamp)/1000)<60&&reqNumber<10 )
    {
     await userModal.updateOne({my_ip:me.toString(),reqNumber:reqNumber+1})
      resp.send(mainarr)
